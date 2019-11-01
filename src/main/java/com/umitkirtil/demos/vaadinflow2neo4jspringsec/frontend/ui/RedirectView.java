@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Route("")
-@PWA(name = "COMU Tıp Quizz App", shortName = "PWA Demo")
+//@PWA(name = "COMU Tıp Quizz App", shortName = "PWA Demo")
 public class RedirectView extends VerticalLayout implements BeforeEnterObserver {
 
     @Override
