@@ -1,3 +1,4 @@
+/*
 package com.umitkirtil.demos.vaadinflow2neo4jspringsec.backend.entity;
 
 import lombok.Getter;
@@ -35,3 +36,4 @@ public abstract class AbstractEntity {
                 .toHashCode();
     }
 }
+*/

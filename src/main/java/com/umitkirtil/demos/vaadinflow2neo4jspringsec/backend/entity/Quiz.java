@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  * @author Umit KIRTIL
@@ -19,11 +18,17 @@ import javax.persistence.ManyToMany;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Role extends AuditModel {
+public class Quiz extends AuditModel {
 
     @Basic
-    private String role;
+    private String quizAciklama;
 
-    @ManyToMany( fetch = FetchType.EAGER, mappedBy = "roles")
-    private List<User> users = new ArrayList<>();
+    @Basic
+    private int gradeLevel;
+
+    @OneToMany(mappedBy = "quiz")
+    private List<Soru> sorus;
+
+    @OneToMany(mappedBy = "quiz")
+    private List<Sonuc> sonucs = new ArrayList<>();
 }

@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.umitkirtil.demos</groupId>
-    <artifactId>vaadinflow2neo4jspringsec</artifactId>
+    <artifactId>tipquiz</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>vaadinflow2neo4jspringsec</name>
-    <description>Demo project for Vaadin Flow2 Neo4j with Spring Security</description>
+    <name>tipquiz</name>
+    <description>Tip Fakultesi Quiz Uygulaması</description>
 
     <properties>
         <java.version>11</java.version>
@@ -21,10 +21,21 @@
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.8</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-neo4j</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-neo4j</artifactId>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
@@ -157,5 +168,4 @@
             </build>
         </profile>
     </profiles>
-
 </project>

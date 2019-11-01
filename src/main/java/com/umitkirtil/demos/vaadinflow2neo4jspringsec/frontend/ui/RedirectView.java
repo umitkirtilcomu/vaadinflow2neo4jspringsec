@@ -2,8 +2,8 @@ package com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui;
 
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.backend.StaticFunctions;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.backend.security.SecurityUtils;
-import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.AsistanlarView;
-import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.user.UserHomeView;
+import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.OgrencilerView;
+import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.user.OgrenciHomeView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -15,25 +15,28 @@ import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.server.PWA;
 import org.springframework.security.core.GrantedAuthority;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Route(value = "")
+@Route("")
+@PWA(name = "COMU Tıp Quizz App", shortName = "PWA Demo")
 public class RedirectView extends VerticalLayout implements BeforeEnterObserver {
 
     @Override
     public void beforeEnter(BeforeEnterEvent event) {
         if (SecurityUtils.isUserLoggedIn()) {
             if (SecurityUtils.getCurrentUserRoles().size() == 1) {
-                if (SecurityUtils.isCurrentUserInRole("admin")) {
-                    SecurityUtils.userCurrentRole = "admin";
-                    event.forwardTo(AsistanlarView.class);
+                if (SecurityUtils.isCurrentUserInRole("ogretmen")) {
+                    SecurityUtils.userCurrentRole = "ogretmen";
+                    event.forwardTo(OgrencilerView.class);
                 }
 
-                if (SecurityUtils.isCurrentUserInRole("user")) {
-                    SecurityUtils.userCurrentRole = "user";
-                    event.forwardTo(UserHomeView.class);
+                if (SecurityUtils.isCurrentUserInRole("ogrenci")) {
+                    SecurityUtils.userCurrentRole = "ogrenci";
+                    event.forwardTo(OgrenciHomeView.class);
                 }
             } else {
                 List<String> currentUserRoleList = new ArrayList<>();
@@ -70,14 +73,14 @@ public class RedirectView extends VerticalLayout implements BeforeEnterObserver 
                     if (value == null || value.isEmpty()) {
                         StaticFunctions.notificationShow("Seçim Yapınız !!! ", NotificationVariant.LUMO_ERROR);
                     } else {
-                        if (value.equals("admin")) {
-                            SecurityUtils.userCurrentRole = "admin";
-                            UI.getCurrent().navigate(AsistanlarView.class);
+                        if (value.equals("ogretmen")) {
+                            SecurityUtils.userCurrentRole = "ogretmen";
+                            UI.getCurrent().navigate(OgrencilerView.class);
                             dialog.close();
                         }
-                        if (value.equals("user")) {
-                            SecurityUtils.userCurrentRole = "user";
-                            UI.getCurrent().navigate(UserHomeView.class);
+                        if (value.equals("ogrenci")) {
+                            SecurityUtils.userCurrentRole = "ogrenci";
+                            UI.getCurrent().navigate(OgrenciHomeView.class);
                             dialog.close();
                         }
                     }

@@ -7,8 +7,8 @@ import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.naviga
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.navigation.drawer.NaviDrawer;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.navigation.drawer.NaviItem;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.navigation.drawer.NaviMenu;
-import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.AsistanlarView;
-import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.user.UserHomeView;
+import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.OgrencilerView;
+import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.user.OgrenciHomeView;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.UIUtils;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.css.FlexDirection;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.css.Overflow;
@@ -122,22 +122,19 @@ public class MainLayout extends FlexBoxLayout
      */
     private void initNaviItems() {
         if (SecurityUtils.isUserLoggedIn()) {
-
-
-            if (SecurityUtils.userCurrentRole.equals("admin")) {
+            if (SecurityUtils.userCurrentRole.equals("ogretmen")) {
                 NaviMenu menu = naviDrawer.getMenu();
 
-                NaviItem asistanIslemleri = menu.addNaviItem(VaadinIcon.USER, "Asistan İşlemleri", null);
-                menu.addNaviItem(asistanIslemleri, "Asistanlar", AsistanlarView.class);
+                NaviItem asistanIslemleri = menu.addNaviItem(VaadinIcon.USER, "Öğrenci İşleri", null);
+                menu.addNaviItem(asistanIslemleri, "Öğrenciler", OgrencilerView.class);
+
                 //menu.addNaviItem(asistanIslemleri, "Asistan Ekle", AsistanEkleView.class);
-
                 //menu.addNaviItem(VaadinIcon.CHART, "Raporlar", RaporView.class);
-
                 //menu.addNaviItem(VaadinIcon.LINE_CHART, "Rapor", RaporChartView.class);
                 //menu.addNaviItem(VaadinIcon.INFO, "Hakkında", AboutView.class);
-            } else if (SecurityUtils.userCurrentRole.equals("user")) {
+            } else if (SecurityUtils.userCurrentRole.equals("ogrenci")) {
                 NaviMenu menu = naviDrawer.getMenu();
-                menu.addNaviItem(VaadinIcon.HOME, "Kişisel Bilgiler", UserHomeView.class);
+                menu.addNaviItem(VaadinIcon.HOME, "Kişisel Bilgiler", OgrenciHomeView.class);
             }
         }
 
@@ -267,7 +264,7 @@ public class MainLayout extends FlexBoxLayout
         NaviItem active = getActiveItem(e);
         if (active == null) {
             if (tabBar.getTabCount() == 0) {
-                tabBar.addClosableTab("", AsistanlarView.class);
+                tabBar.addClosableTab("", OgrencilerView.class);
             }
         } else {
             if (tabBar.getTabCount() > 0) {

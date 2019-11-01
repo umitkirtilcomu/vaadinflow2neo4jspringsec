@@ -77,7 +77,7 @@ public class NaviDrawer extends Div
     }
 
     private void initHeader() {
-        mainContent.add(new BrandExpression("-- Sistem --"));
+        mainContent.add(new BrandExpression("Quiz App"));
     }
 
     private void initSearch() {

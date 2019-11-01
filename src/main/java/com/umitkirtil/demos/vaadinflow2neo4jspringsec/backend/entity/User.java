@@ -3,21 +3,46 @@ package com.umitkirtil.demos.vaadinflow2neo4jspringsec.backend.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import javax.persistence.*;
+
+/**
+ * @author Umit KIRTIL
+ */
 
 @Getter
 @Setter
 @NoArgsConstructor
-@NodeEntity
-public class User extends AbstractEntity {
-    private String email, passwordHash, firstName, lastName;
+@Entity
+@Table(name = "`User`")
+public class User extends AuditModel {
 
-    @Relationship(type = "ROLES")
-    private Set<Role> roles = new HashSet<>();
+    @Basic
+    private String firstName;
+
+    @Basic
+    private String lastName;
+
+    @Basic
+    private String email;
+
+    @Basic
+    private String passwordHash;
+
+    @Basic
+    private String tel;
+
+    @Basic
+    private String tc;
+
+    @Basic
+    private boolean locked;
+
+    @Basic
+    private int gradeLevel;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Role> roles = new ArrayList<>();
 }

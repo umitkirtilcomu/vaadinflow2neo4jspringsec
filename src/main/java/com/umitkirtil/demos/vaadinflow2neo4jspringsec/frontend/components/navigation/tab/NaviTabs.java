@@ -1,6 +1,6 @@
 package com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.navigation.tab;
 
-import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.AsistanlarView;
+import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.OgrencilerView;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.UIUtils;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.css.Overflow;
 import com.vaadin.flow.component.Component;
@@ -93,7 +93,7 @@ public class NaviTabs extends Tabs {
                 if (getTabCount() > 0) {
                     setSelectedIndex(getTabCount() - 1);
                 } else {
-                    UI.getCurrent().navigate(AsistanlarView.class);
+                    UI.getCurrent().navigate(OgrencilerView.class);
                 }
             }
         }

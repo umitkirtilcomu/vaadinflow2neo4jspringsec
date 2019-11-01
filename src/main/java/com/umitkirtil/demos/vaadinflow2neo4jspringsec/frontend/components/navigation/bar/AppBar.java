@@ -5,7 +5,7 @@ import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.MainLayout;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.FlexBoxLayout;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.navigation.tab.NaviTab;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.navigation.tab.NaviTabs;
-import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.AsistanlarView;
+import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.OgrencilerView;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.LumoStyles;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.UIUtils;
 import com.vaadin.flow.component.Component;
@@ -152,7 +152,7 @@ public class AppBar extends FlexBoxLayout {
     private void initTabs(NaviTab... tabs) {
         addTab = UIUtils.createSmallButton(VaadinIcon.PLUS);
         addTab.addClickListener(e -> this.tabs
-                .setSelectedTab(addClosableNaviTab("Yeni Sekme", AsistanlarView.class)));
+                .setSelectedTab(addClosableNaviTab("Yeni Sekme", OgrencilerView.class)));
         addTab.setVisible(false);
 
         this.tabs = tabs.length > 0 ? new NaviTabs(tabs) : new NaviTabs();

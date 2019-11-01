@@ -12,9 +12,9 @@ import org.springframework.security.access.annotation.Secured;
 
 @Route(value = "user/home", layout = MainLayout.class)
 @Secured(value = "user")
-public class UserHomeView extends VerticalLayout {
+public class OgrenciHomeView extends VerticalLayout {
 
-    public UserHomeView() {
+    public OgrenciHomeView() {
         add(new H1("User Home View Hoşgeldiniz"));
         VaadinServlet vaadinServlet = VaadinServlet.getCurrent();
 

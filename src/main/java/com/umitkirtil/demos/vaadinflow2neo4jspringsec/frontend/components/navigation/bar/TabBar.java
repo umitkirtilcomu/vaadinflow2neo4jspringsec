@@ -3,7 +3,7 @@ package com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.navig
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.MainLayout;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.FlexBoxLayout;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.components.navigation.tab.NaviTabs;
-import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.AsistanlarView;
+import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.ui.admin.OgrencilerView;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.LumoStyles;
 import com.umitkirtil.demos.vaadinflow2neo4jspringsec.frontend.util.UIUtils;
 import com.vaadin.flow.component.Component;
@@ -51,7 +51,7 @@ public class TabBar extends FlexBoxLayout {
 
         addTab = UIUtils.createSmallButton(VaadinIcon.PLUS);
         addTab.addClickListener(e -> tabs
-                .setSelectedTab(addClosableTab("Yeni Sekme", AsistanlarView.class)));
+                .setSelectedTab(addClosableTab("Yeni Sekme", OgrencilerView.class)));
         addTab.setClassName(CLASS_NAME + "__add-tab");
 
         tabs = new NaviTabs();
