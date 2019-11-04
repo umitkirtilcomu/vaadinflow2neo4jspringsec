@@ -95,6 +95,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>
+                        -Xms256m -Xmx384m
+                    </jvmArguments>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>com.vaadin</groupId>
@@ -149,7 +154,7 @@
 
     <profiles>
         <profile>
-            <id>production-mode</id>
+            <id>production</id>
             <build>
                 <plugins>
                     <plugin>
